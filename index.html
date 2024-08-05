@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMAGINE COMPUTER LEARNING CENTER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #1a1a1d;
             color: #c5c6c7;
             margin: 0;
@@ -16,33 +17,69 @@
             background-color: #4e4e50;
             padding: 20px;
             text-align: center;
+            background-image: url('header-background.jpg');
+            background-size: cover;
         }
         header h1 {
             margin: 0;
             color: #66fcf1;
+            font-size: 2.5em;
         }
         nav {
             background-color: #0b0c10;
             padding: 10px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         nav a {
             color: #66fcf1;
             margin: 0 15px;
             text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #45a29e;
         }
         section {
-            padding: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .section-title {
             color: #66fcf1;
             margin-bottom: 10px;
+            font-size: 1.8em;
+            text-align: center;
         }
         .image-section, .projects, .lesson-files, .tutorial, .knowledge {
             background-color: #333;
             margin-bottom: 20px;
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-image: url('section-background.jpg');
+            background-size: cover;
+        }
+        .lesson-files ul {
+            list-style: none;
+            padding: 0;
+        }
+        .lesson-files li {
+            margin: 10px 0;
+        }
+        .lesson-files a {
+            color: #66fcf1;
+            text-decoration: none;
+            background-color: #0b0c10;
+            padding: 10px 15px;
             border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .lesson-files a:hover {
+            background-color: #45a29e;
+            color: #fff;
         }
         footer {
             background-color: #4e4e50;
@@ -74,7 +111,8 @@
     <section id="lesson-files" class="lesson-files">
         <h2 class="section-title">Lesson Files</h2>
         <ul>
-            <li><a href="https://1drv.ms/p/s!AkvJ-W9t-RBahyvmusbS66c52Ec0?e=KTrN2w" target="_blank">Classroom rules</a></li>
+            <li><a href="https://github.com/aungthawzin-web/imagine/blob/main/Classroom%20rules.pptx" target="_blank">Classroom rules</a></li>
+            <li><a href="https://github.com/aungthawzin-web/imagine/blob/main/shape%20quiz.pptx" target="_blank">shape quiz</a></li>
         </ul>
     </section>
     <section id="tutorial" class="tutorial">
