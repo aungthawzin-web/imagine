@@ -5,88 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMAGINE COMPUTER LEARNING CENTER</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <style>
+        /* Color Scheme */
+        :root {
+            --primary-color: #1e90ff;  /* DodgerBlue */
+            --secondary-color: #20c997; /* Cyan */
+            --accent-color: #ff6b6b;    /* Coral */
+            --background-color: #f0f4f8; /* Light Gray */
+            --text-color: #333;          /* Dark Gray */
+            --header-bg-color: #282c34;  /* Dark Background */
+            --button-hover-color: #17a2b8; /* Blue with a touch of green */
+        }
+        
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('web-bk.png'); /* Path to your uploaded image */
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: #fff; /* Change text color to be readable against dark background */
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
+
         header {
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            background-color: var(--header-bg-color);
             padding: 20px;
             text-align: center;
             color: #fff;
         }
+
         header h1 {
             margin: 0;
             font-family: 'Poppins', sans-serif;
             font-size: 2.5em;
-            color: #ff6b6b;
+            color: var(--primary-color);
         }
+
         nav {
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            background-color: var(--header-bg-color);
             padding: 10px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
+
         nav a {
-            color: #ff6b6b;
+            color: var(--primary-color);
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
         }
-        nav a:hover {
-            color: #ff4757;
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
         }
+
         section {
             padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             border-radius: 10px;
+            position: relative;
         }
+
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('path/to/your/background-image.jpg') no-repeat center center/cover;
+            opacity: 0.3; /* Adjust opacity to make it subtle */
+            border-radius: 10px;
+            z-index: 0;
+        }
+
+        .section-content {
+            position: relative;
+            z-index: 1;
+        }
+
         .section-title {
             font-family: 'Poppins', sans-serif;
-            color: #ff6b6b;
+            color: var(--primary-color);
             margin-bottom: 20px;
             font-size: 1.8em;
             text-align: center;
         }
-        .image-section, .projects, .lesson-files, .tutorial, .knowledge {
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
+
         .lesson-files ul {
             list-style: none;
             padding: 0;
         }
+
         .lesson-files li {
             margin: 10px 0;
         }
+
         .lesson-files a {
-            color: #1e272e;
+            color: #fff;
             text-decoration: none;
-            background-color: #ff6b6b;
+            background-color: var(--primary-color);
             padding: 10px 15px;
             border-radius: 5px;
             display: inline-block;
             transition: background-color 0.3s, color 0.3s;
         }
+
         .lesson-files a:hover {
-            background-color: #ff4757;
-            color: #fff;
+            background-color: var(--button-hover-color);
         }
+
+        .swiper-container {
+            width: 100%;
+            height: auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.8); /* Transparent background for contrast */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .swiper-slide:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
         footer {
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            background-color: var(--header-bg-color);
             padding: 20px;
             text-align: center;
             color: #fff;
@@ -99,44 +158,87 @@
         <h1>IMAGINE COMPUTER LEARNING CENTER</h1>
     </header>
     <nav>
-        <a href="#image-section">Image Section</a>
-        <a href="#projects">Projects</a>
-        <a href="#lesson-files">Lesson Files</a>
+        <a href="#lesson-files" class="active">Lesson Files</a>
         <a href="#tutorial">Tutorial</a>
         <a href="#knowledge">Knowledge</a>
     </nav>
-    <section id="image-section" class="image-section">
-        <h2 class="section-title">Image Section</h2>
-        <p>Include images that represent your learning center here.</p>
-    </section>
-    <section id="projects" class="projects">
-        <h2 class="section-title">Projects</h2>
-        <p>Details about various projects can be listed here.</p>
-    </section>
+
     <section id="lesson-files" class="lesson-files">
-        <h2 class="section-title">Lesson Files</h2>
-        <ul>
-             <section id="lesson-files" class="lesson-files">
-        <h2 class="section-title">Lesson Files</h2>
-        </ul>
+        <div class="section-content">
+            <h2 class="section-title">Lesson Files</h2>
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="Room Decoration.dotx" download>Room Decoration</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="Colorful Fun Classroom The Shape Quiz Presentation.pptx" download>Shape Quiz</a>
+                    </div>
+                    <!-- Add more slides as needed -->
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
     </section>
-            <li><a href="https://1drv.ms/w/s!AkvJ-W9t-RBahzGXSBJYITDruSeW?e=dKEGwL" target="_blank">Room Decoration</a></li>
-            <li><a href="https://1drv.ms/p/s!AkvJ-W9t-RBahzUxpqUdnxA5SPQm?e=pdB7jH" target="_blank">shape quiz</a></li>
-        </ul>
+
+    <section id="tutorial" class="tutorial card">
+        <div class="section-content">
+            <h2 class="section-title">Tutorial</h2>
+            <p>Include tutorials and guides for different topics here.</p>
+        </div>
     </section>
-    <section id="tutorial" class="tutorial">
-        <h2 class="section-title">Tutorial</h2>
-        <p>Include tutorials and guides for different topics here.</p>
+
+    <section id="knowledge" class="knowledge card">
+        <div class="section-content">
+            <h2 class="section-title">Knowledge</h2>
+            <p>Share knowledge articles and insights here.</p>
+        </div>
     </section>
-    <section id="knowledge" class="knowledge">
-        <h2 class="section-title">Knowledge</h2>
-        <p>Share knowledge articles and insights here.</p>
+
+    <section id="video-section" class="video-section card">
+        <div class="section-content">
+            <h2 class="section-title">Video Tutorial</h2>
+            <video width="100%" controls>
+                <source src="path/to/your/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
     </section>
+
     <footer>
         <p>&copy; 2024 IMAGINE COMPUTER LEARNING CENTER</p>
     </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Smooth scrolling and active link indication
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
-        <p>&copy; 2024 IMAGINE COMPUTER LEARNING CENTER</p>
-    </footer>
