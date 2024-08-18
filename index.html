@@ -5,29 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMAGINE COMPUTER LEARNING CENTER</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Color Scheme */
-        :root {
-            --primary-color: #1e90ff;  /* DodgerBlue */
-            --secondary-color: #20c997; /* Cyan */
-            --accent-color: #ff6b6b;    /* Coral */
-            --background-color: #f0f4f8; /* Light Gray */
-            --text-color: #333;          /* Dark Gray */
-            --header-bg-color: #282c34;  /* Dark Background */
-            --button-hover-color: #17a2b8; /* Blue with a touch of green */
-        }
-        
+        /* General Styling */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            background-color: #f0f4f8;
+            color: #333;
         }
 
         header {
-            background-color: var(--header-bg-color);
+            background-color: #282c34;
             padding: 20px;
             text-align: center;
             color: #fff;
@@ -37,11 +27,11 @@
             margin: 0;
             font-family: 'Poppins', sans-serif;
             font-size: 2.5em;
-            color: var(--primary-color);
+            color: #1e90ff;
         }
 
         nav {
-            background-color: var(--header-bg-color);
+            background-color: #282c34;
             padding: 10px;
             text-align: center;
             position: sticky;
@@ -50,7 +40,7 @@
         }
 
         nav a {
-            color: var(--primary-color);
+            color: #1e90ff;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
@@ -58,94 +48,87 @@
         }
 
         nav a:hover, nav a.active {
-            color: var(--accent-color);
+            color: #ff6b6b;
         }
 
         section {
             padding: 40px 20px;
             max-width: 1200px;
             margin: 0 auto;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            border-radius: 10px;
-            position: relative;
-        }
-
-        section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('path/to/your/background-image.jpg') no-repeat center center/cover;
-            opacity: 0.3; /* Adjust opacity to make it subtle */
-            border-radius: 10px;
-            z-index: 0;
-        }
-
-        .section-content {
-            position: relative;
-            z-index: 1;
         }
 
         .section-title {
             font-family: 'Poppins', sans-serif;
-            color: var(--primary-color);
+            color: #1e90ff;
             margin-bottom: 20px;
             font-size: 1.8em;
             text-align: center;
         }
 
-        .lesson-files ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .lesson-files li {
-            margin: 10px 0;
-        }
-
-        .lesson-files a {
-            color: #fff;
-            text-decoration: none;
-            background-color: var(--primary-color);
-            padding: 10px 15px;
-            border-radius: 5px;
-            display: inline-block;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .lesson-files a:hover {
-            background-color: var(--button-hover-color);
-        }
-
-        .swiper-container {
-            width: 100%;
-            height: auto;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-            background: rgba(255, 255, 255, 0.8); /* Transparent background for contrast */
+        /* Lesson Files Section */
+        .folders {
             display: flex;
+            gap: 20px;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
+        }
+
+        .folder {
+            width: 150px;
+            text-align: center;
+            cursor: pointer;
+            background-color: #fff;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .swiper-slide:hover {
+        .folder:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
+        .folder-icon {
+            font-size: 3em;
+            color: #1e90ff;
+            margin-bottom: 10px;
+        }
+
+        .folder-title {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .file-list {
+            display: none;
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .file-list a {
+            color: #fff;
+            text-decoration: none;
+            background-color: #1e90ff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .file-list a:hover {
+            background-color: #ff6b6b;
+        }
+
+        .folder.active .file-list {
+            display: block;
+        }
+
         footer {
-            background-color: var(--header-bg-color);
+            background-color: #282c34;
             padding: 20px;
             text-align: center;
             color: #fff;
@@ -158,87 +141,72 @@
         <h1>IMAGINE COMPUTER LEARNING CENTER</h1>
     </header>
     <nav>
-        <a href="#lesson-files" class="active">Lesson Files</a>
+        <a href="#lesson-files">Lesson Files</a>
         <a href="#tutorial">Tutorial</a>
         <a href="#knowledge">Knowledge</a>
+        <a href="#image-library">Image Library</a>
     </nav>
 
+    <!-- Lesson Files Section -->
     <section id="lesson-files" class="lesson-files">
-        <div class="section-content">
-            <h2 class="section-title">Lesson Files</h2>
-            <!-- Swiper -->
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a href="Room Decoration.dotx" download>Room Decoration</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="Colorful Fun Classroom The Shape Quiz Presentation.pptx" download>Shape Quiz</a>
-                    </div>
-                    <!-- Add more slides as needed -->
+        <h2 class="section-title">Lesson Files</h2>
+        <div class="folders">
+            <!-- MS Word Folder -->
+            <div class="folder" onclick="toggleFolder(this)">
+                <div class="folder-icon">
+                    <i class="fas fa-file-word"></i>
                 </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-                <!-- Add Navigation -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="folder-title">MS Word</div>
+                <ul class="file-list">
+                    <li><a href="https://1drv.ms/w/s!AkvJ-W9t-RBah2HbU8tssVzks8Yk?e=KydoKn" download>Stickerlesson</a></li>
+                    <li><a href="Room Decoration.dotx" download>Room Decoration</a></li>
+                </ul>
+            </div>
+
+            <!-- PowerPoint Folder -->
+            <div class="folder" onclick="toggleFolder(this)">
+                <div class="folder-icon">
+                    <i class="fas fa-file-powerpoint"></i>
+                </div>
+                <div class="folder-title">PowerPoint</div>
+                <ul class="file-list">
+                    <li><a href="Colorful Fun Classroom The Shape Quiz Presentation.pptx" download>Shape Quiz</a></li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section id="tutorial" class="tutorial card">
-        <div class="section-content">
-            <h2 class="section-title">Tutorial</h2>
-            <p>Include tutorials and guides for different topics here.</p>
+    <!-- Image Library Section -->
+    <section id="image-library" class="image-library">
+        <h2 class="section-title">Image Library</h2>
+        <div class="image-card">
+            <a href="#lightbox1"><img src="path/to/image1.jpg" alt="Image 1"></a>
+            <a href="path/to/image1.jpg" download class="download-btn">Download</a>
         </div>
+        <div class="image-card">
+            <a href="#lightbox2"><img src="path/to/image2.jpg" alt="Image 2"></a>
+            <a href="path/to/image2.jpg" download class="download-btn">Download</a>
+        </div>
+        <!-- Add more image cards as needed -->
     </section>
 
-    <section id="knowledge" class="knowledge card">
-        <div class="section-content">
-            <h2 class="section-title">Knowledge</h2>
-            <p>Share knowledge articles and insights here.</p>
-        </div>
-    </section>
-
-    <section id="video-section" class="video-section card">
-        <div class="section-content">
-            <h2 class="section-title">Video Tutorial</h2>
-            <video width="100%" controls>
-                <source src="path/to/your/video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </section>
+    <!-- Lightbox Modals -->
+    <div id="lightbox1" class="lightbox">
+        <img src="path/to/image1.jpg" alt="Image 1">
+    </div>
+    <div id="lightbox2" class="lightbox">
+        <img src="path/to/image2.jpg" alt="Image 2">
+    </div>
 
     <footer>
         <p>&copy; 2024 IMAGINE COMPUTER LEARNING CENTER</p>
     </footer>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        var swiper = new Swiper('.swiper-container', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        // Smooth scrolling and active link indication
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
-                this.classList.add('active');
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+        // Function to toggle folder open and close
+        function toggleFolder(element) {
+            element.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
